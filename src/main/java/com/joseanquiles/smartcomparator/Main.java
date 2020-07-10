@@ -55,6 +55,7 @@ public class Main {
         List<Difference> diffs = plugin.compare(leftFilename, rightFilename);
 
         for (int i = 0; i < diffs.size(); i++) {
+            System.out.println("-------------------------------------------------");
             System.out.println(diffs.get(i).toString());
         }
     }

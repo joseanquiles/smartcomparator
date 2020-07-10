@@ -39,6 +39,18 @@ public class XmlComparator implements SmartComparatorPlugin {
                 Difference diff = new Difference();
                 diff.diffType = DiffType.LEFT;
                 diff.description = leftLine;
+                // before lines
+                for (int k = i - 3; k < i; k++) {
+                    if (k >= 0) {
+                        diff.linesBefore.add(leftDoc.get(k));
+                    }
+                }
+                // after lines
+                for (int k = i + 1; k < i + 4; k++) {
+                    if (k < leftDoc.size()) {
+                        diff.linesAfter.add(leftDoc.get(k));
+                    }
+                }
                 result.add(diff);
             }
         }
@@ -58,6 +70,18 @@ public class XmlComparator implements SmartComparatorPlugin {
                 Difference diff = new Difference();
                 diff.diffType = DiffType.RIGHT;
                 diff.description = rightLine;
+                // before lines
+                for (int k = i - 3; k < i; k++) {
+                    if (k >= 0) {
+                        diff.linesBefore.add(rightDoc.get(k));
+                    }
+                }
+                // after lines
+                for (int k = i + 1; k < i + 4; k++) {
+                    if (k < rightDoc.size()) {
+                        diff.linesAfter.add(rightDoc.get(k));
+                    }
+                }
                 result.add(diff);
             }
         }
